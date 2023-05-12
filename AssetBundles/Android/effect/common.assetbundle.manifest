@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 916502931
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cf10022fe98b47c9d626c16ec860f701
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 22357172b8cea85847937e8f62d0c077
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetsPackage/Effect/Common/Texture/models_fx_a.png
+- Assets/AssetsPackage/Effect/Common/Texture/Matcap_Encode2.png
+- Assets/AssetsPackage/Effect/Common/Materials/models_fx_RGB.mat
+- Assets/AssetsPackage/Effect/Common/Materials/models_fx_R.mat
+- Assets/AssetsPackage/Effect/Common/Texture/models_fx.png
+Dependencies:
+- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/shaders.assetbundle
