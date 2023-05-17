@@ -19,11 +19,15 @@ local AssistantDict = {
     ["Update"] = typeof(CS.LuaUpdateAssistant),
     ["FixedUpdate"] = typeof(CS.LuaFixedUpdateAssistant),
     ["LateUpdate"] = typeof(CS.LuaLateUpdateAssistant),
-    ["OnPointerClick"] = typeof(CS.LuaOnPointerClickAssistant)
+    ["OnPointerClick"] = typeof(CS.LuaOnPointerClickAssistant),
+    ["OnBeginDrag"] = typeof(CS.LuaOnBeginDragAssistant),
+    ["OnDrag"] = typeof(CS.LuaOnDragAssistant),
+    ["OnEndDrag"] = typeof(CS.LuaOnEndDragAssistant),
+    ["OnPointerDown"] = typeof(CS.LuaOnPointerDownAssistant),
+    ["OnPointerUp"] = typeof(CS.LuaOnPointerUpAssistant)
 }
 
 function LuaBehaviour:initialize()
-    print("LuaBehaviour:__init__")
 
     for funcName, assistant in pairs(AssistantDict) do
         if self[funcName] then

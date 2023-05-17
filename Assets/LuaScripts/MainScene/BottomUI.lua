@@ -27,30 +27,42 @@ end
 function BottomUI:OnEnable()
     print("BottomUI OnEnable")
     print("BlockConfig.BlockGroup ", BlockConfig.BlockGroup);
-    local chara = GameObjectPool:GetInstance():GetGameObjectAsync(BlockConfig.BlockGroup, function(blockGroup)
-
-        if IsNull(blockGroup) then
-            error("Load chara res err!")
-            do return end
-        end
 
 
+    for i = 1, 3 do
+        math.randomseed(os.time())
 
-        local LuaBehaviour = blockGroup:GetComponent("LuaBehaviour")
+        local chara = GameObjectPool:GetInstance():GetGameObjectAsync(BlockConfig.BlockGroup, function(blockGroup)
+
+            if IsNull(blockGroup) then
+                error("Load chara res err!")
+                do return end
+            end
 
 
-        local startFunc =  LuaBehaviour.LuaInstance["Start"];
-        
-        if startFunc  then
-            print("Start Function exist")
-        else
-            print("Start Function == null")
-        end
 
-        LuaBehaviour.LuaInstance:Start(1)
+            local LuaBehaviour = blockGroup:GetComponent("LuaBehaviour")
+            
+            local startFunc =  LuaBehaviour.LuaInstance["Start"];
 
-        blockGroup.transform:SetParent(self.Content, false)
-    end)
+            if startFunc  then
+                print("Start Function exist")
+            else
+                print("Start Function == null")
+            end
+            local randomInt = math.random(1, 19)
+            
+            print("randomInt ", randomInt)
+            
+            LuaBehaviour.LuaInstance:Start(randomInt)
+
+            blockGroup.transform:SetParent(self.Content, false)
+            blockGroup.transform.localPosition =  Vector3.New((i-2) * GameConfig.BottomWidth / 3, 0, 0);
+            blockGroup.transform.localScale = GameConfig.GroupInitScale
+        end)
+    end
+    
+   
 
 end
 

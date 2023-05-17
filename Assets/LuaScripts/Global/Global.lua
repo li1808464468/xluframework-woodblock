@@ -107,7 +107,9 @@ EffectManager = require "Framework.Resource.Effect.EffectManager"
 HallConnector = require "Net.Connector.HallConnector"
 
 
+-- block
 BlockConfig = require "Config.BlockConfig"
+GameConfig = require "Config.GameConfig"
 
 
 -- 单例类初始化

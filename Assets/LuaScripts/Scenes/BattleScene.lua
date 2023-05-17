@@ -4,6 +4,7 @@
 -- TODO：这里只是做一个战斗场景展示Demo，大部分代码以后需要挪除
 --]]
 
+
 local BattleScene = BaseClass("BattleScene", BaseScene)
 local base = BaseScene
 

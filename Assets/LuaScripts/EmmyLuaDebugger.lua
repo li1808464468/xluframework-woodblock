@@ -6,7 +6,3 @@
 package.cpath = package.cpath .. ';/Users/haitao.li/Library/Application Support/JetBrains/Rider2021.3/plugins/EmmyLua/debugger/emmy/mac/x64/?.dylib'
 local dbg = require('emmy_core')
 dbg.tcpConnect('localhost', 9966)
-
-function debugLog()
-    print("EmmyLuaDebugger======");
-end

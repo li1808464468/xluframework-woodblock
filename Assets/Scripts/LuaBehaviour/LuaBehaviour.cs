@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 using XLua;
+using Random = UnityEngine.Random;
 
 //---------------测试类型---------------
 public enum Season
@@ -83,16 +84,21 @@ public class LuaBehaviour : MonoBehaviour
 
     private Action<LuaTable> onEnableFunc;
     private Action<LuaTable> onDisableFunc;
+    private Action<LuaTable> StartFunc;
 
     void InitLua()
     {
         luaInstance = XLuaManager.Instance.GetLuaEnv().NewTable();
         //注入自己
         luaInstance.Set("gameObject", gameObject);
+        
         var rets = XLuaManager.Instance.SafeDoStringReturn($"return require \"{LuaScriptPath}\"");
         var luaClass = (LuaTable)rets[0];
+
         LuaTable defineTable;
         luaClass.Get("_DefineList", out defineTable);
+        
+        
         if (defineTable != null)
         {
             Dictionary<string, Type> infoDict = new Dictionary<string, Type>();
@@ -123,10 +129,13 @@ public class LuaBehaviour : MonoBehaviour
                 }
             }
         }
-        var newWith = luaClass.Get<Action<LuaTable, LuaTable>>("newWith");
-        newWith(luaClass, luaInstance);        
+        
+        var newWith = luaClass.GetInPath<Func<LuaTable, LuaTable, LuaTable>>("newWith");
+        luaClass =  newWith(luaClass, luaInstance);
         this.onEnableFunc = luaClass.Get<Action<LuaTable>>("OnEnable");
         this.onDisableFunc = luaClass.Get<Action<LuaTable>>("OnDisable");
+        this.StartFunc =  luaClass.Get<Action<LuaTable>>("OnStart");
+
     }
 
     void Awake()
@@ -142,6 +151,11 @@ public class LuaBehaviour : MonoBehaviour
         onEnableFunc?.Invoke(LuaInstance);      
     }
 
+    void Start()
+    {
+        StartFunc?.Invoke(LuaInstance);
+    }
+    
     void OnDisable()
     {
         onDisableFunc?.Invoke(LuaInstance);

@@ -68,9 +68,10 @@ function BaseClass(classname, super)
 	class_type.newWith = function(self, instance, ...)
 		assert(type(self) == 'table', "Make sure that you are using 'Class:new' instead of 'Class.new'")
 		assert(type(instance) == 'table', "Make sure instance is table")
-		setmetatable(instance, {__index = self})
+		local classInstance = self.New()
+		setmetatable(instance, {__index = classInstance})
 		instance:initialize(...)
-		return instance
+		return classInstance
 	end
 
 	

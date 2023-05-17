@@ -19,6 +19,36 @@ end
 
 local BlockData = require "Config.Data.BlockData"
 
+function BlockGroup:__init()
+    self.blockList = {}
+    self._firstBlockXIndexInChess = -1
+    self._firstBlockYIndexInChess = -1
+    self._firstBlockXIndexInGroup = -1
+    self._firstBlockYIndexInGroup = -1
+    self.checkBottomY = 100
+    self.checkTopY = -100
+    self.checkRightX = -100
+    self._allBlockIndex = {}
+    self.moveingCheck = {}
+    self.moveEndCheck = {}
+    self.blockGroupWidth = 0
+    self.blockGroupHeight = 0
+    self.minX = 0
+    self.maxX = 0
+    self.minY = 0
+    self.maxY = 0
+    self.eventData = nil
+    self.transform = nil
+    self.rectTransform = nil
+end
+
+function BlockGroup:__delete()
+    self.blockList = nil
+    self._allBlockIndex = nil
+    self.moveingCheck = nil
+    self.moveEndCheck = nil
+end
+
 
 function BlockGroup:initialize()
     LuaBehaviour.initialize(self)
@@ -27,23 +57,102 @@ end
 
 function BlockGroup:OnStart()
     print("OnStart")
+
+    self:initData()
+    self:createBlock()
+    print("BlockListCount  ", self.blockList.Count)
 end
 
 function BlockGroup:Start(blockGroupDataId)
 
     if BlockData[blockGroupDataId].id == nil then
-        print("BlockGroupData index  " .. blockGroupDataId .. "不存在")
         blockGroupDataId = 1;
     end
 
     self.BlockGroupData = BlockData[blockGroupDataId];
-    self:createBlock();
+end
+
+function BlockGroup:initData()
+    local blockArray = self.BlockGroupData.data;
+    self.transform = self.gameObject.transform
+    self.rectTransform = self.gameObject:GetComponent(typeof(CS.UnityEngine.RectTransform))
+
+    for i = 0, #blockArray - 1 do
+        for j = 0, #blockArray[i+1] - 1 do
+            if blockArray[i+1][j+1] == 0then
+                goto continue
+            end
+            if self._firstBlockXIndexInGroup == -1 then self._firstBlockXIndexInGroup = i end
+            if self._firstBlockYIndexInGroup == -1 then self._firstBlockYIndexInGroup = j end
+
+            local xDistance = i - self._firstBlockXIndexInGroup
+            local yDistance = j - self._firstBlockYIndexInGroup
+
+            if xDistance > self.checkRightX then self.checkRightX = xDistance end
+            if yDistance > self.checkTopY then self.checkTopY = yDistance end
+            if yDistance < self.checkBottomY then self.checkBottomY = yDistance end
+
+            table.insert(self._allBlockIndex, {i, j})
+
+            table.insert(self.moveingCheck, xDistance .. "," .. yDistance)
+
+            -- 生成检测棋盘消除时数组
+            if not self.moveEndCheck[xDistance] then table.insert(self.moveEndCheck, xDistance) end
+
+            -- 为了区分行或者列，j 的坐标是 +100 之后的，i 是横坐标，所以要检查列, j 是纵坐标，所以要检测行
+            if not self.moveEndCheck[yDistance + 100] then table.insert(self.moveEndCheck, yDistance + 100) end
+
+
+            ::continue::
+        end
+    end
+
+    self.blockGroupWidth = self.checkRightX - self._firstBlockXIndexInGroup + 1;
+    self.blockGroupHeight = self.checkTopY - self.checkBottomY + 1;
+
+    self.minX = 1080 * -0.5 + (self.blockGroupWidth * 0.5 * 122);
+    self.maxX = 1080 * 0.5 - (self.blockGroupWidth * 0.5 * 122);
+    self.minY = 1920 * -0.5 + (self.blockGroupHeight * 0.5 * 122);
+    self.maxY = 1920 * 0.5 - (self.blockGroupHeight * 0.5 * 122);
 
 end
 
 function BlockGroup:createBlock()
     local blockArray = self.BlockGroupData.data;
-    print("BlockGroup tableLength = " ..  #blockArray)
+
+    for i = 0, #self._allBlockIndex - 1 do
+        local chara = GameObjectPool:GetInstance():GetGameObjectAsync(BlockConfig.Block, function(block)
+
+            if IsNull(block) then
+                error("Load chara res err!")
+                do return end
+            end
+            table.insert(self.blockList, block)
+            block.transform:SetParent(self.gameObject.transform, false)
+            local trans = block:GetComponent("RectTransform")
+            trans.sizeDelta = Vector2.New(GameConfig.blockWidth, GameConfig.blockHeight);
+            local contentSize = trans.sizeDelta;
+
+            --算偏移距离 0 1 2 3 所以 1.5是中心点
+            local offsetX = (self._firstBlockXIndexInGroup + self.checkRightX + self._firstBlockXIndexInGroup) / 2 - (#blockArray - 1) / 2
+            local offsetY = (self._firstBlockYIndexInGroup + self.checkBottomY + self._firstBlockYIndexInGroup + self.checkTopY) / 2 - (#blockArray - 1) / 2
+
+            local gapSize = contentSize;
+
+            local newPositionX = #blockArray * -0.5 * gapSize.x + gapSize.x * 0.5 + gapSize.x  * self._allBlockIndex[i+1][1];
+            local newPositionY = #blockArray * -0.5 * gapSize.y + gapSize.y * 0.5 + gapSize.y  * self._allBlockIndex[i+1][2];
+
+            trans.localPosition = Vector2.New(newPositionX, newPositionY);
+            local position = block.transform.localPosition;
+            local inintPosition = Vector3.New(position.x - GameConfig.blockWidth * offsetX, position.y - GameConfig.blockHeight * offsetY, position.z);
+            block.transform.localPosition = inintPosition;
+        end)
+
+    end
+    
+    
+    
+   
 end
 
 
@@ -55,8 +164,43 @@ function BlockGroup:OnDestroy()
     print("OnDestroy")
 end
 
+function BlockGroup:OnDrag(eventData)
+    print("OnDrag")
+end
+
+function BlockGroup:OnBeginDrag(eventData)
+    print("OnBeginDrag")
+end
+
+function BlockGroup:OnEndDrag(eventData)
+    print("OnEndDrag")
+end
+
+function BlockGroup:OnPointerDown(eventData)
+    self.eventData = eventData
+
+    local rectTransformType = self.rectTransform:GetType():ToString()
+    local positionType = eventData.position:GetType():ToString()
+    local enterEventCameraType = eventData.enterEventCamera:GetType():ToString()
+    print("OnPointerDown ", rectTransformType , positionType, enterEventCameraType)
+
+    local successn, outParam =  CS.UnityEngine.RectTransformUtility.ScreenPointToLocalPointInRectangle(self.rectTransform, eventData.position, eventData.enterEventCamera)
+    
+    local localPosition = Vector3.New(outParam.x, outParam.y, 0)
+    localPosition.y = localPosition.y + GameConfig.GroupClickYAdd + self.blockGroupHeight * 0.5 * GameConfig.blockHeight
+    
+    --self.transform.DOBlendableLocalMoveBy(localPosition - self.transform.localPosition, 0.1)
+    --self.transform.DOBlendableScaleBy(Vector3.New(1, 1, 1) - self.transform.localScale, 0.1)
+    
+end
+
+function BlockGroup:OnPointerUp(eventData)
+    print("OnPointerUp")
+end
 
 
 
-return BlockGroup
+
+
+return BlockGroup   
 
