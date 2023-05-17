@@ -14,7 +14,8 @@ GameConfig.blockImageHeight = 94;
 GameConfig.GroupInitScale = Vector3.New(0.5, 0.5, 0.5);
 
 GameConfig.BottomWidth = 750;
-
 GameConfig.GroupClickYAdd = 300
+GameConfig.GroupMoveSpeed = 1.0
+
 
 return ConstClass("GameConfig", GameConfig)

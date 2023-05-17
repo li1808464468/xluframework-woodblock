@@ -40,6 +40,7 @@ function BlockGroup:__init()
     self.eventData = nil
     self.transform = nil
     self.rectTransform = nil
+    self.initPosition = Vector3.zero
 end
 
 function BlockGroup:__delete()
@@ -60,7 +61,7 @@ function BlockGroup:OnStart()
 
     self:initData()
     self:createBlock()
-    print("BlockListCount  ", self.blockList.Count)
+    self.initPosition = self.transform.localPosition
 end
 
 function BlockGroup:Start(blockGroupDataId)
@@ -165,7 +166,22 @@ function BlockGroup:OnDestroy()
 end
 
 function BlockGroup:OnDrag(eventData)
-    print("OnDrag")
+    
+    local po = eventData.delta * GameConfig.GroupMoveSpeed
+    local localPosition = self.transform.localPosition
+    self.transform.localPosition = Vector3.New(po.x + localPosition.x, po.y + localPosition.y, 0)
+    if self.transform.localPosition.x < self.minX then
+        self.transform.localPosition.x = self.minX
+    elseif self.transform.localPosition.x > self.maxX then
+        self.transform.localPosition.x = self.maxX
+    end
+
+    if self.transform.localPosition.y < self.minY then
+        self.transform.localPosition.y = self.minY
+    elseif self.transform.localPosition.y > self.maxY then
+        self.transform.localPosition.y = self.maxX
+    end
+
 end
 
 function BlockGroup:OnBeginDrag(eventData)
@@ -178,24 +194,22 @@ end
 
 function BlockGroup:OnPointerDown(eventData)
     self.eventData = eventData
-
-    local rectTransformType = self.rectTransform:GetType():ToString()
-    local positionType = eventData.position:GetType():ToString()
-    local enterEventCameraType = eventData.enterEventCamera:GetType():ToString()
-    print("OnPointerDown ", rectTransformType , positionType, enterEventCameraType)
-
-    local successn, outParam =  CS.UnityEngine.RectTransformUtility.ScreenPointToLocalPointInRectangle(self.rectTransform, eventData.position, eventData.enterEventCamera)
     
-    local localPosition = Vector3.New(outParam.x, outParam.y, 0)
+    --local successn, outParam =  CS.UnityEngine.RectTransformUtility.ScreenPointToLocalPointInRectangle(self.rectTransform, eventData.position, eventData.enterEventCamera)
+    
+    local localPosition = self.transform.localPosition
     localPosition.y = localPosition.y + GameConfig.GroupClickYAdd + self.blockGroupHeight * 0.5 * GameConfig.blockHeight
     
-    --self.transform.DOBlendableLocalMoveBy(localPosition - self.transform.localPosition, 0.1)
-    --self.transform.DOBlendableScaleBy(Vector3.New(1, 1, 1) - self.transform.localScale, 0.1)
+    self.transform:DOBlendableLocalMoveBy(localPosition - self.transform.localPosition, 0.1)
+    self.transform:DOBlendableScaleBy(Vector3.New(1, 1, 1) - self.transform.localScale, 0.1)
     
 end
 
 function BlockGroup:OnPointerUp(eventData)
-    print("OnPointerUp")
+    
+    self.transform:DOKill()
+    self.transform.localPosition = self.initPosition
+    self.transform.localScale = GameConfig.GroupInitScale
 end
 
 
