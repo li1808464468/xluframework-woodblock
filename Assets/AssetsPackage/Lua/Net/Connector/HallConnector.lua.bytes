@@ -41,7 +41,7 @@ local function LoadPB()
 	if(CS.GameUtility.GetPlatform() == "Windows")then
 		table.walk(pbFiles,function(i,path)
 			print(path.." pb load success")
-			assert(pb.loadfile("Assets/LuaScripts/"..path))
+			--assert(pb.loadfile("Assets/LuaScripts/"..path))
 		end)
 	else
 		table.walk(pbFiles,function(i,path)

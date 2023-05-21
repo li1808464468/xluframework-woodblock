@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 535631776
+CRC: 1409651584
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4ce0eb82c127d8b85ffd4a81a060a949
+    Hash: 86d3b559cc6fe5fda844d168b60b81a5
   TypeTreeHash:
     serializedVersion: 2
     Hash: 66f1681bab9400c5c672c894c2986234
@@ -37,6 +37,5 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/AssetsPackage/UI/Prefabs/UILoading/UILoading.prefab
 Dependencies:
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/atlas/comm.assetbundle
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/atlas/role.assetbundle
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/fonts/system_ttf.assetbundle
+- /Users/haitao.li/Desktop/git/xluframework-woodblock/AssetBundles/Android/Android/AssetBundles/ui/atlas/comm.assetbundle
+- /Users/haitao.li/Desktop/git/xluframework-woodblock/AssetBundles/Android/Android/AssetBundles/ui/fonts/system_ttf.assetbundle

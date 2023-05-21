@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1115192240
+CRC: 1208062357
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fa90deb7bb9dcd1dbc49845f0e2f3e6f
+    Hash: 1f16d3fc8ec1056a57ed3a4f888ffe60
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 460691824937cc0fd1aa089b0f928874
+    Hash: 9fdbc172e48db57ddbcb3127bb548ad6
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -15,16 +15,14 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
-- Class: 91
-  Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -39,7 +37,6 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/AssetsPackage/UI/Prefabs/Common/UINoticeTip.prefab
 Dependencies:
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/ani.assetbundle
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/atlas/comm.assetbundle
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/fonts/system_art_ttf.assetbundle
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/fonts/system_ttf.assetbundle
+- /Users/haitao.li/Desktop/git/xluframework-woodblock/AssetBundles/Android/Android/AssetBundles/ui/atlas/comm.assetbundle
+- /Users/haitao.li/Desktop/git/xluframework-woodblock/AssetBundles/Android/Android/AssetBundles/ui/fonts/system_art_ttf.assetbundle
+- /Users/haitao.li/Desktop/git/xluframework-woodblock/AssetBundles/Android/Android/AssetBundles/ui/fonts/system_ttf.assetbundle

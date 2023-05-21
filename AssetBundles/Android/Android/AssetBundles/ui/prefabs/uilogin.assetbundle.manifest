@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3239970535
+CRC: 1506528721
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2443e9c3d5d4911c5670ae08fd7638eb
+    Hash: d0f88775429a1e46c905fee95c2f59c3
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 0c7e37020efaece35d0f9d21a69707c4
+    Hash: 6e984de62ee3e488aa95f1243eaff234
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -19,12 +19,12 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
-- Class: 91
-  Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
 - Class: 114
@@ -39,8 +39,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
 - Class: 114
@@ -64,9 +62,6 @@ Assets:
 - Assets/AssetsPackage/UI/Prefabs/UILogin/UILogin.prefab
 - Assets/AssetsPackage/UI/Prefabs/UILogin/UILoginServer.prefab
 Dependencies:
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/ani.assetbundle
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/atlas/comm.assetbundle
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/atlas/group.assetbundle
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/atlas/login.assetbundle
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/fonts/system_art_ttf.assetbundle
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/fonts/system_ttf.assetbundle
+- /Users/haitao.li/Desktop/git/xluframework-woodblock/AssetBundles/Android/Android/AssetBundles/ui/atlas/comm.assetbundle
+- /Users/haitao.li/Desktop/git/xluframework-woodblock/AssetBundles/Android/Android/AssetBundles/ui/fonts/system_art_ttf.assetbundle
+- /Users/haitao.li/Desktop/git/xluframework-woodblock/AssetBundles/Android/Android/AssetBundles/ui/fonts/system_ttf.assetbundle

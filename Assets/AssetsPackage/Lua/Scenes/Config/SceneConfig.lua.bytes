@@ -14,30 +14,22 @@ local SceneConfig = {
 		Name = "LaunchScene",
 		Type = nil,
 	},
-	-- 加载场景
+	-- 启动场景
 	LoadingScene = {
+		-- level、name对应于BuldSetting中添加的场景
 		Level = 1,
 		Name = "LoadingScene",
 		Type = nil,
 	},
-	-- 登陆场景
-	LoginScene = {
+	
+	-- 启动场景
+	MainScene = {
+		-- level、name对应于BuldSetting中添加的场景
 		Level = 2,
-		Name = "LoginScene",
-		Type = require "Scenes.LoginScene",
-	},
-	-- 主页场景
-	HomeScene = {
-		Level = 3,
-		Name = "HomeScene",
-		Type = require "Scenes.HomeScene",
-	},
-	-- 战斗场景
-	BattleScene = {
-		Level = 4,
-		Name = "BattleScene",
-		Type = require "Scenes.BattleScene",
-	},
+		Name = "MainScene",
+		Type = require "Scenes.MainScene"
+	}
+	
 }
 
 return ConstClass("SceneConfig", SceneConfig)

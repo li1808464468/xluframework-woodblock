@@ -1,0 +1,50 @@
+ManifestFileVersion: 0
+CRC: 2149420527
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4c291b98e5a79f980947bdf82075d352
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 01095d1f02543cf93f095f351345ff1e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b0c9d1e131efe664d9773f71fe17ded9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetsPackage/UI/Prefabs/MainScene/Block/Block.prefab
+- Assets/AssetsPackage/UI/Prefabs/MainScene/TopUI/Image/game_icn_old_man_skin_star.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/TopUI/Image/game_btn_01.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/TopUI/Image/Crown_AllTime.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/TopUI/Image/game_dec_02_02.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/BottomUI/Image/game_btn_02.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/TopUI/Image/game_icn_02.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/BlockGroup/BlockGroup.prefab
+- Assets/AssetsPackage/UI/Prefabs/MainScene/TopUI/UI_top_1.prefab
+- Assets/AssetsPackage/UI/Prefabs/MainScene/Chess/Checkerboard_1.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/TopUI/Image/all time.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/TopUI/Image/game_prg_bar.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/BottomUI/Image/game_pad_02.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/TopUI/Image/game_prg_pad.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/BottomUI/Image/img_rotate_button_bg.png
+- Assets/AssetsPackage/UI/Prefabs/MainScene/BottomUI/Image/game_pad_01.png
+Dependencies: []

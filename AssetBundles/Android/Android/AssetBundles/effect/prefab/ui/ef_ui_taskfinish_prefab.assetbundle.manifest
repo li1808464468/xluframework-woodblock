@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2386496261
+CRC: 1648858442
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3f5cea80b73b8a3ecbfd78c68595e509
+    Hash: 897600bda12258c6863bf5cec32fd046
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 18e93336e262300131f0384e236c54c8
+    Hash: 7235cb70012f0eb96439a013198207cf
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -18,8 +18,6 @@ ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
 - Class: 48
-  Script: {instanceID: 0}
-- Class: 91
   Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
@@ -41,5 +39,4 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/AssetsPackage/Effect/Prefab/UI/ef_ui_TaskFinish.prefab
 Dependencies:
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/shaders.assetbundle
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/ui/ani.assetbundle
+- /Users/haitao.li/Desktop/git/xluframework-woodblock/AssetBundles/Android/Android/AssetBundles/shaders.assetbundle

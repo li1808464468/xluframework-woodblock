@@ -4,6 +4,7 @@
 --]]
 
 --保存类类型的虚表
+
 local _class = {}
  
 -- added by wsh @ 2017-12-09
@@ -64,6 +65,17 @@ function BaseClass(classname, super)
 		return obj
 	end
 
+	class_type.newWith = function(self, instance, ...)
+		assert(type(self) == 'table', "Make sure that you are using 'Class:new' instead of 'Class.new'")
+		assert(type(instance) == 'table', "Make sure instance is table")
+		local classInstance = self.New()
+		setmetatable(instance, {__index = classInstance})
+		instance:initialize(...)
+		return classInstance
+	end
+
+	
+
 	local vtbl = {}
 	_class[class_type] = vtbl
  
@@ -75,6 +87,8 @@ function BaseClass(classname, super)
 		--For call parent method
 		__index = vtbl,
 	})
+
+	
  
 	if super then
 		setmetatable(vtbl, {
@@ -87,5 +101,7 @@ function BaseClass(classname, super)
 		})
 	end
  
+	
+	
 	return class_type
 end

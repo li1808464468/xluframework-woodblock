@@ -27,4 +27,4 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/AssetsPackage/Effect/Prefab/UI/ef_ui_pet_rank_yellow_test.prefab
 Dependencies:
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/shaders.assetbundle
+- /Users/haitao.li/Desktop/git/xluframework-woodblock/AssetBundles/Android/Android/AssetBundles/shaders.assetbundle

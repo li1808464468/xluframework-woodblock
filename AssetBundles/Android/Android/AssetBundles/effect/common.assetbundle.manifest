@@ -23,4 +23,4 @@ Assets:
 - Assets/AssetsPackage/Effect/Common/Materials/models_fx_R.mat
 - Assets/AssetsPackage/Effect/Common/Texture/models_fx.png
 Dependencies:
-- /Users/haitao.li/Desktop/git/xlua-framework-unity2018-master/AssetBundles/Android/Android/AssetBundles/shaders.assetbundle
+- /Users/haitao.li/Desktop/git/xluframework-woodblock/AssetBundles/Android/Android/AssetBundles/shaders.assetbundle

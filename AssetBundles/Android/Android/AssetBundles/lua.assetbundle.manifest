@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3211299893
+CRC: 451055041
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6d1dca53306d942e678d95c92b9d50cc
+    Hash: 0ec4f952ed5c14ed26b63ac225a57bf8
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -18,6 +18,7 @@ Assets:
 - Assets/AssetsPackage/Lua/XLua/Perf/profiler.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Base/UIBaseModel.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Main.lua.bytes
+- Assets/AssetsPackage/Lua/MainScene/Block/BaseBlock.lua.bytes
 - Assets/AssetsPackage/Lua/UnitTest/TableUtilTest.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/Resource/AtlasManager.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Tools/UnityEngine/Mathf.lua.bytes
@@ -33,6 +34,7 @@ Assets:
 - Assets/AssetsPackage/Lua/UI/UITestMain/UITestMainConfig.lua.bytes
 - Assets/AssetsPackage/Lua/UI/UIBattle/UIBattleConfig.lua.bytes
 - Assets/AssetsPackage/Lua/Common/LuaUtil.lua.bytes
+- Assets/AssetsPackage/Lua/MainScene/BottomUI.lua.bytes
 - Assets/AssetsPackage/Lua/DataCenter/ServerData/ServerData.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Tools/UnityEngine/Plane.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Tools/utf8.lua.bytes
@@ -47,8 +49,10 @@ Assets:
 - Assets/AssetsPackage/Lua/Framework/Updater/TimerManager.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Component/UILayer.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Component/UICanvas.lua.bytes
+- Assets/AssetsPackage/Lua/Config/GameConfig.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/Scene/SceneManager.lua.bytes
 - Assets/AssetsPackage/Lua/XLua/Common/messenger.lua.bytes
+- Assets/AssetsPackage/Lua/UnitTest/LuaBehaviourTest.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Component/UITabGroup.lua.bytes
 - Assets/AssetsPackage/Lua/UnitTest/SingletonTest.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Tools/lpeg/re.lua.bytes
@@ -56,10 +60,12 @@ Assets:
 - Assets/AssetsPackage/Lua/Common/Tools/UnityEngine/Vector4.lua.bytes
 - Assets/AssetsPackage/Lua/Config/Data/ServerAreaLang.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Component/UITextMeshPro.lua.bytes
+- Assets/AssetsPackage/Lua/Scenes/MainScene.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Component/UIButtonGroup.lua.bytes
 - Assets/AssetsPackage/Lua/GameTest/CustomTest/CustomTest.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Tools/socket/url.lua.bytes
 - Assets/AssetsPackage/Lua/DataCenter/UserData/UserData.lua.bytes
+- Assets/AssetsPackage/Lua/UnitTest/BaseBlock.lua.bytes
 - Assets/AssetsPackage/Lua/GameTest/GameTestMain.lua.bytes
 - Assets/AssetsPackage/Lua/UI/UIBattle/Controller/UIBattleMainCtrl.lua.bytes
 - Assets/AssetsPackage/Lua/Net/Proto/user.pb.bytes
@@ -67,6 +73,7 @@ Assets:
 - Assets/AssetsPackage/Lua/Common/StringUtil.lua.bytes
 - Assets/AssetsPackage/Lua/XLua/HotfixMain.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Component/UITextMeshProInput.lua.bytes
+- Assets/AssetsPackage/Lua/MainScene/BlockGroup.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Tools/UnityEngine/LayerMask.lua.bytes
 - Assets/AssetsPackage/Lua/UnitTest/UnitTestMain.lua.bytes
 - Assets/AssetsPackage/Lua/Config/Data/Hero.lua.bytes
@@ -80,6 +87,7 @@ Assets:
 - Assets/AssetsPackage/Lua/UI/UINoticeTip/Model/UINoticeTipModel.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/Resource/GameObjectPool.lua.bytes
 - Assets/AssetsPackage/Lua/UnitTest/RapidJsonTest.lua.bytes
+- Assets/AssetsPackage/Lua/EmmyLuaDebugger.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Base/UIBaseCtrl.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/Updater/Coroutine.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Component/UIWrapComponent.lua.bytes
@@ -105,6 +113,7 @@ Assets:
 - Assets/AssetsPackage/Lua/UI/UIBoard/Model/UIBoardNPCModel.lua.bytes
 - Assets/AssetsPackage/Lua/Scenes/HomeScene.lua.bytes
 - Assets/AssetsPackage/Lua/UnitTest/ClassTest.lua.bytes
+- Assets/AssetsPackage/Lua/Config/BlockConfig.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/UILayers.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/Scene/Base/BaseScene.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Tools/socket/ftp.lua.bytes
@@ -146,8 +155,10 @@ Assets:
 - Assets/AssetsPackage/Lua/Framework/UI/Component/UIAnimation.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Base/UIBaseView.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Tools/socket/tp.lua.bytes
+- Assets/AssetsPackage/Lua/Config/Data/BlockData.lua.bytes
 - Assets/AssetsPackage/Lua/XLua/Common/util.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Base/UIBaseContainer.lua.bytes
+- Assets/AssetsPackage/Lua/Framework/Common/LuaBehaviour.lua.bytes
 - Assets/AssetsPackage/Lua/DataCenter/Config/DataMessageNames.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Component/UIWrapGroup.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/UI/Component/UISlider.lua.bytes
@@ -166,7 +177,9 @@ Assets:
 - Assets/AssetsPackage/Lua/Framework/UI/Component/UIInput.lua.bytes
 - Assets/AssetsPackage/Lua/GameLogic/Main/LogicUpdater.lua.bytes
 - Assets/AssetsPackage/Lua/UI/UIBoard/View/UIBoardNPCView.lua.bytes
+- Assets/AssetsPackage/Lua/MainScene/Block/RainbowBlock.lua.bytes
 - Assets/AssetsPackage/Lua/GameMain.lua.bytes
+- Assets/AssetsPackage/Lua/MainScene/RotateButton.lua.bytes
 - Assets/AssetsPackage/Lua/Net/Config/MsgIDDefine.lua.bytes
 - Assets/AssetsPackage/Lua/Framework/Common/Updatable.lua.bytes
 - Assets/AssetsPackage/Lua/GameTest/DataTest/TestServerData.lua.bytes
@@ -189,5 +202,6 @@ Assets:
 - Assets/AssetsPackage/Lua/GameTest/ModuleTest/TestNoticeTip.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Tools/socket/http.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Tools/socket/mbox.lua.bytes
+- Assets/AssetsPackage/Lua/UnitTest/RainbowBlock.lua.bytes
 - Assets/AssetsPackage/Lua/Common/Tools/event.lua.bytes
 Dependencies: []
