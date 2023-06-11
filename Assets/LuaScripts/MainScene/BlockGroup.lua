@@ -202,6 +202,9 @@ function BlockGroup:OnPointerDown(eventData)
     
     self.transform:DOBlendableLocalMoveBy(localPosition - self.transform.localPosition, 0.1)
     self.transform:DOBlendableScaleBy(Vector3.New(1, 1, 1) - self.transform.localScale, 0.1)
+
+    GameSceneControl:GetInstance():CheckedGroup(self);
+    
     
 end
 
@@ -210,6 +213,8 @@ function BlockGroup:OnPointerUp(eventData)
     self.transform:DOKill()
     self.transform.localPosition = self.initPosition
     self.transform.localScale = GameConfig.GroupInitScale
+    
+    GameSceneControl:GetInstance():UnCheckedGroup(self);
 end
 
 

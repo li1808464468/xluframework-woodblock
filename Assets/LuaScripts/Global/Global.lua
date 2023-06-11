@@ -83,6 +83,7 @@ UIBoardManager = require "UI.UIBoard.UIBoardManager"
 ResourcesManager = require "Framework.Resource.ResourcesManager"
 GameObjectPool = require "Framework.Resource.GameObjectPool"
 
+
 -- update & time
 Timer = require "Framework.Updater.Timer"
 TimerManager = require "Framework.Updater.TimerManager"
@@ -111,6 +112,8 @@ HallConnector = require "Net.Connector.HallConnector"
 BlockConfig = require "Config.BlockConfig"
 GameConfig = require "Config.GameConfig"
 
+GameSceneControl = require "MainScene.GameSceneControl"
+
 
 -- 单例类初始化
 UIManager:GetInstance()
@@ -122,3 +125,6 @@ AtlasManager:GetInstance()
 LogicUpdater:GetInstance()
 HallConnector:GetInstance()
 UIBoardManager:GetInstance()
+
+GameSceneControl:GetInstance()
+
