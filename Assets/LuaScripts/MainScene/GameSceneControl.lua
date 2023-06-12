@@ -12,6 +12,10 @@ function GameSceneControl:__init()
 end
 
 function GameSceneControl:CheckedGroup(blockGroup)
+    if self.checkedGroup ~= nil then
+        print("当前有选中的BlockGroup，不能重复设置")
+    end
+    
     print("设置选中BlockGroup")
     self.checkedGroup = blockGroup;
 end

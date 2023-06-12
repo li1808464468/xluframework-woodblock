@@ -28,10 +28,15 @@ end
 
 
 function Board:Update()
-    
     if GameSceneControl:GetInstance():getCheckedGroup() ~= nil then
-        print("有选中BlockGroup")
+        this.judgeClear()
     end
 end
+
+function Board:judgeClear()
+    
+end
+
+
 
 return Board
