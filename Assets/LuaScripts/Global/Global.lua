@@ -114,6 +114,7 @@ GameConfig = require "Config.GameConfig"
 
 GameSceneControl = require "MainScene.GameSceneControl"
 
+BlockUtil = require "Common.BlockUtil"
 
 -- 单例类初始化
 UIManager:GetInstance()

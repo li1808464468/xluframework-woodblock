@@ -18,23 +18,40 @@ if ExecuteInEditorScript then
 end
 --------------------------需要序列化的数据--------------------------
 
-
+function Board:__init()
+    print("------------ Board init")
+    self.UIRoot = nil;
+end
 
 function Board:initialize()
-LuaBehaviour.initialize(self)
+    LuaBehaviour.initialize(self)
+end
 
+function Board:OnStart()
+    local rootObj = BlockUtil.FindGameObjectInCanvas("UIRoot");
+    if rootObj then
+        print("UIRoot found")
+        self.UIRoot = rootObj.transform
+    else
+        print("UIRoot not found")
+    end
 end
 
 
 
 function Board:Update()
-    if GameSceneControl:GetInstance():getCheckedGroup() ~= nil then
-        this.judgeClear()
+    if GameSceneControl:GetInstance().checkedGroup ~= nil then
+        self:judgeClear()
     end
 end
 
 function Board:judgeClear()
+
+    local blockGroup = GameSceneControl:GetInstance().checkedGroup
     
+    local worldPosition = BlockUtil.ConvertLocalPosition(blockGroup.blockList[1].transform, self.UIRoot);
+
+    print("世界坐标" .. "x = ".. worldPosition.x .. "y = " .. worldPosition.y)
 end
 
 

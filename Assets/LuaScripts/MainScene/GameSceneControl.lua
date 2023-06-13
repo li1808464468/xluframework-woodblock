@@ -24,8 +24,4 @@ function GameSceneControl:UnCheckedGroup(bockGroup)
     self.checkedGroup = nil;
 end
 
-function GameSceneControl:getCheckedGroup()
-    return self.checkedGroup
-end
-
 return GameSceneControl
